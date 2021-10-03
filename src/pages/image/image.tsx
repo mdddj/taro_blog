@@ -1,6 +1,6 @@
 import {View, Text} from "@tarojs/components";
 import * as React from "react";
-import {useReady} from "@tarojs/runtime";
+import {usePullDownRefresh, useReady} from "@tarojs/runtime";
 // @ts-ignore
 import Taro from '@tarojs/taro'
 // @ts-ignore
@@ -22,8 +22,7 @@ const Row = React.memo<any>(({id, index, style, data}) => {
   const item = data[index] as ResCategory
   return (
     <View id={id} style={{marginBottom:12,...style}} className='my-card' onClick={async ()=>{
-      console.log(item)
-      Taro.preload(Api.instance().getResourcePostList({page:0,pageSize:10},{categoryId: item.id} as any))
+      Taro.preload('category',item)
       await Taro.navigateTo({url: '/pages/resource/resource?id=' + item.id})
     }}
     >
@@ -59,6 +58,10 @@ const ImagePage: React.FC = () => {
     setInitLoading(false)
   })
 
+
+  usePullDownRefresh(()=>{
+    console.log('下拉刷新')
+  })
 
   const getWindowHeight = async () => {
     await Taro.getSystemInfo({
