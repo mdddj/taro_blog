@@ -9,6 +9,8 @@ import {successResultHandle} from "dd_server_api/apis/utils/ResultUtil";
 import {ResourceModel} from "dd_server_api/apis/model/ResourceModel";
 import Api from "../../request";
 import ViewLoading from "../../component/ViewLoading";
+import {TaroVirtualList} from "taro-virtual-list";
+import Post from "../../component/Post";
 
 
 
@@ -31,7 +33,6 @@ const ResourceListPage:React.FC = () => {
     setCategory(cate)
     await fetchData(cate)
     setInitLoading(false)
-
   })
 
   /// 加载数据
@@ -40,15 +41,30 @@ const ResourceListPage:React.FC = () => {
     successResultHandle(response,data => {
       let newList = list.concat(data.list)
       setList(newList)
-
     })
+  }
+
+  // 渲染列表Item
+  const renderFunc = (item, index, pageIndex) => {
+    return (
+      <Post post={item} />
+    )
+  }
+
+
+  const onPageScrollToLower = () => {
+    // 执行分页数据请求
+    console.log('正在请求下一页数据')
   }
 
   return  <View>
     {
-      initLoading ?<ViewLoading />:<ScrollView>
-
-      </ScrollView>
+      initLoading ?<ViewLoading />:<View>
+        <TaroVirtualList autoScrollTop={false} list={list} listType='multi' pageNum={page+1} onRender={renderFunc} screenNum={2} segmentNum={10} scrollViewProps={{
+          onScrollToLower: onPageScrollToLower,
+        }}
+        />
+      </View>
     }
   </View>
 }

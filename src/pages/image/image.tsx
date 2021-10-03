@@ -14,6 +14,7 @@ import {ResCategory} from "dd_server_api/apis/model/ResCategory";
 import {useState} from "react";
 import Api from "../../request";
 import './image.less'
+import ViewLoading from "../../component/ViewLoading";
 
 
 
@@ -37,6 +38,8 @@ const Row = React.memo<any>(({id, index, style, data}) => {
   );
 })
 
+const pageSize = 10;
+
 const ImagePage: React.FC = () => {
 
 
@@ -50,7 +53,7 @@ const ImagePage: React.FC = () => {
   /// 页面启动完成执行函数
   useReady(async () => {
     await getWindowHeight()
-    const response = await Api.instance().getResourceCategoryList({pageSize: 2, page: page}, {type: 'images'} as any)
+    const response = await Api.instance().getResourceCategoryList({pageSize: pageSize, page: page}, {type: 'images'} as any)
     successResultHandle<{ page: PagerModel, list: ResCategory[] }>(response, data => {
       setList(data.list)
       hasNoMore(data.page)
@@ -77,7 +80,7 @@ const ImagePage: React.FC = () => {
     setNextLoading(true)
     let nextPage = page + 1;
     setPage(nextPage)
-    Api.instance().getResourceCategoryList({pageSize:2,page:nextPage},{type:'images'} as any).then(value => {
+    Api.instance().getResourceCategoryList({pageSize:pageSize,page:nextPage},{type:'images'} as any).then(value => {
       setNextLoading(false)
       successResultHandle(value,data => {
         let newList = list.concat(data.list)
@@ -93,15 +96,12 @@ const ImagePage: React.FC = () => {
   }
 
   if (initLoading) {
-    return <View>
-      加载中
-    </View>
+    return <ViewLoading />
   }
-  console.log(noMore)
 
   return <View>
     <VirtualList
-      height={screenHeight- (noMore ?  64 : 0)} /* 列表的高度 */
+      height={screenHeight- (noMore ?  30 : 0)} /* 列表的高度 */
       width='100%' /* 列表的宽度 */
       itemData={list} /* 渲染列表的数据 */
       itemCount={list.length} /*  渲染列表的长度 */
@@ -123,8 +123,8 @@ const ImagePage: React.FC = () => {
       {Row}
     </VirtualList>
     {
-      noMore && <View style={{height:64,textAlign:"center",color:'grey',fontSize: 12}}>
-        全部加载完毕
+      noMore && <View style={{height:30,textAlign:"center",color:'grey',fontSize: 12,background: '#f7f7f7',lineHeight: '30px'}}>
+        <Text>全部加载完毕</Text>
       </View>
     }
   </View>
