@@ -1,0 +1,13 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "ddminiapp",
+  "description": "diandian de blog of mini app by taro app ",
+  "appid": "wxe0752f049061e273",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
+}
