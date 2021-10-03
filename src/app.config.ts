@@ -4,6 +4,7 @@ export default {
     'pages/user/user',
     'pages/image/image',
     'pages/category/category',
+    'pages/resource/resource'
   ],
   window: {
     backgroundTextStyle: 'light',

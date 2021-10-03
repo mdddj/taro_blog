@@ -19,9 +19,14 @@ import './image.less'
 
 
 const Row = React.memo<any>(({id, index, style, data}) => {
-  const item = data[index]
+  const item = data[index] as ResCategory
   return (
-    <View id={id} style={{marginBottom:12,...style}} className='my-card'>
+    <View id={id} style={{marginBottom:12,...style}} className='my-card' onClick={async ()=>{
+      console.log(item)
+      Taro.preload(Api.instance().getResourcePostList({page:0,pageSize:10},{categoryId: item.id} as any))
+      await Taro.navigateTo({url: '/pages/resource/resource?id=' + item.id})
+    }}
+    >
       <View className='at-row at-row__align--center'>
         <View className='at-col at-col-1 at-col--auto '>
           <AtAvatar image={item.logo} size='small' circle />
@@ -46,7 +51,7 @@ const ImagePage: React.FC = () => {
   /// 页面启动完成执行函数
   useReady(async () => {
     await getWindowHeight()
-    const response = await Api.instance().getResourceCategoryList({pageSize: 100, page: page}, {type: 'images'} as any)
+    const response = await Api.instance().getResourceCategoryList({pageSize: 2, page: page}, {type: 'images'} as any)
     successResultHandle<{ page: PagerModel, list: ResCategory[] }>(response, data => {
       setList(data.list)
       hasNoMore(data.page)
@@ -58,22 +63,22 @@ const ImagePage: React.FC = () => {
   const getWindowHeight = async () => {
     await Taro.getSystemInfo({
       success: res => {
-        console.log(res)
         setScreenHeight(res.windowHeight)
       }
     })
   }
 
 
+  /// 加载下一页
   const fetchNextPage = () => {
     setNextLoading(true)
     let nextPage = page + 1;
     setPage(nextPage)
-    Api.instance().getResourceCategoryList({pageSize:10,page:nextPage},{type:'images'} as any).then(value => {
+    Api.instance().getResourceCategoryList({pageSize:2,page:nextPage},{type:'images'} as any).then(value => {
       setNextLoading(false)
       successResultHandle(value,data => {
-        list.concat(...list,data.list)
-        setList(list)
+        let newList = list.concat(data.list)
+        setList(newList)
         hasNoMore(data.page)
       })
     })

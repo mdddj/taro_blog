@@ -4725,10 +4725,10 @@ dayjs@^1.7.7:
   resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.7.tgz#2cf5f91add28116748440866a0a1d26f3a6ce468"
   integrity sha512-P6twpd70BcPK34K26uJ1KT3wlhpuOAPoMwJzpsIWUxHZ7wpmbdZL/hQqBDfz7hGurYSa5PhzdhDHtt319hL3ig==
 
-dd_server_api@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/dd_server_api/-/dd_server_api-2.0.4.tgz#3884f09e5488ff70083dbe2cc66a3c4b79c6c041"
-  integrity sha512-gbShi1cmsa+hdlp7Gi5YNcX/Op7dRzwM0uqdh5x2S8OGpqWn5AJfez5E7HOEQRxrqvaHzZBT17YC6/j/1nUxSg==
+dd_server_api@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/dd_server_api/-/dd_server_api-2.0.5.tgz#2aeb06f8340103464908a541e769e93450ec4af1"
+  integrity sha512-1CSg0dWKomwEnGF/lJk7L+OymoDMZmSGx9IYJ+36xhtYakISv0alLHdHoKkKRSNQP/10DLAaCfXae5OcAylhtQ==
   dependencies:
     axios-miniprogram "^2.0.0-rc-2"
 
@@ -8597,11 +8597,6 @@ lodash.debounce@^4.0.8:
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
 
-lodash.isequal@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
-  integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
-
 lodash.kebabcase@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.kebabcase/-/lodash.kebabcase-4.1.1.tgz#8489b1cb0d29ff88195cceca448ff6d6cc295c36"
@@ -11558,11 +11553,6 @@ requires-port@^1.0.0:
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
 
-resize-observer-polyfill@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
-  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
-
 resolve-cwd@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/resolve-cwd/-/resolve-cwd-2.0.0.tgz#00a9f7387556e27038eae232caa372a6a59b665a"
@@ -12947,23 +12937,6 @@ taro-css-to-react-native@^2.0.4:
     css-color-keywords "^1.0.0"
     css-mediaquery "^0.1.2"
     postcss-value-parser "^3.3.0"
-
-taro-list-data-manager@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/taro-list-data-manager/-/taro-list-data-manager-0.3.2.tgz#f3b322af48f54b91f1a5193075928b7e29b33224"
-  integrity sha512-SYwiBM9E/kxbQ4HI9PeH6BRSwAgqdAKqK17kR4MKg6xX/IZy63NZfzWdQk40YX79ZHRL3EEvfoGHpK+frAtVSg==
-  dependencies:
-    lodash.isequal "^4.5.0"
-
-taro-list@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/taro-list/-/taro-list-1.0.8.tgz#f92ddc80423871695bf293496a7212e0c26712ea"
-  integrity sha512-wW3pT+JNOF73HxkPR0wM/w6gzpthYXQ2zXEEyTnzrTno2ARIuNeXME0rLGvd2UVg+m9OzmUaXS6JGrdmr4Qlkw==
-  dependencies:
-    lodash.isequal "^4.5.0"
-    prop-types "^15.7.2"
-    resize-observer-polyfill "^1.5.1"
-    taro-list-data-manager "^0.3.2"
 
 taro-ui@^3.0.0-alpha.3:
   version "3.0.0-alpha.10"
