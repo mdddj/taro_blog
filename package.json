@@ -45,8 +45,7 @@
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "taro-ui": "^3.0.0-alpha.3",
-    "dd_server_api":"^2.0.5",
-    "taro-virtual-list": "^1.0.13"
+    "dd_server_api":"^2.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",

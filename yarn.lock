@@ -12948,11 +12948,6 @@ taro-ui@^3.0.0-alpha.3:
     lodash "^4.17.10"
     prop-types "^15.7.2"
 
-taro-virtual-list@^1.0.13:
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/taro-virtual-list/-/taro-virtual-list-1.0.13.tgz#6511721200bd79f06566c2ecaf3112f77a90b223"
-  integrity sha512-Lwfaeqyrp5vPNxjPynE2DW5x4Gt/k6TQC1FB4jpYc11/Ll0rdFo73sxEqexm2kvSFly1ZqcBDG+CvWiWVmusOA==
-
 term-size@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/term-size/-/term-size-1.2.0.tgz#458b83887f288fc56d6fffbfad262e26638efa69"

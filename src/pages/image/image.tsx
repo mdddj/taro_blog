@@ -5,12 +5,10 @@ import {usePullDownRefresh, useReady} from "@tarojs/runtime";
 import Taro from '@tarojs/taro'
 // @ts-ignore
 import VirtualList from '@tarojs/components/virtual-list'
-import "taro-ui/dist/style/components/avatar.scss";
-import "taro-ui/dist/style/components/flex.scss";
 import {AtAvatar} from "taro-ui";
 import {PagerModel, successResultHandle} from "dd_server_api/apis/utils/ResultUtil";
 import {ResCategory} from "dd_server_api/apis/model/ResCategory";
-
+import "taro-ui/dist/style/components/avatar.scss";
 import {useState} from "react";
 import Api from "../../request";
 import './image.less'
@@ -53,7 +51,7 @@ const ImagePage: React.FC = () => {
   /// 页面启动完成执行函数
   useReady(async () => {
     await getWindowHeight()
-    const response = await Api.instance().getResourceCategoryList({pageSize: pageSize, page: page}, {type: 'images'} as any)
+    const response = await Api.instance().getResourceCategoryList({pageSize: pageSize, page: page},)
     successResultHandle<{ page: PagerModel, list: ResCategory[] }>(response, data => {
       setList(data.list)
       hasNoMore(data.page)
@@ -80,7 +78,7 @@ const ImagePage: React.FC = () => {
     setNextLoading(true)
     let nextPage = page + 1;
     setPage(nextPage)
-    Api.instance().getResourceCategoryList({pageSize:pageSize,page:nextPage},{type:'images'} as any).then(value => {
+    Api.instance().getResourceCategoryList({pageSize:pageSize,page:nextPage}).then(value => {
       setNextLoading(false)
       successResultHandle(value,data => {
         let newList = list.concat(data.list)
@@ -108,12 +106,8 @@ const ImagePage: React.FC = () => {
       itemSize={72}
       onScroll={({ scrollDirection, scrollOffset }) => {
         if (
-          // 避免重复加载数据
           !nextLoading &&
-          // 只有往前滚动我们才触发
           scrollDirection === 'forward' && !noMore &&
-          // 5 = (列表高度 / 单项列表高度)
-          // 100 = 滚动提前加载量，可根据样式情况调整
           scrollOffset > ((list.length - 5) * 72 + 100)
         ) {
           fetchNextPage()
