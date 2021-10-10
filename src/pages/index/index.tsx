@@ -40,9 +40,9 @@ const Index:React.FC = () => {
   return <ScrollView>
     {
       blogs.map(value => {
-        return <View key={value.id} className={'blog'}>
-          <View className={'blog-title'}>{value.title}</View>
-          <View className={'blog-content'}>{value.content.substring(0,50)}</View>
+        return <View key={value.id} className='blog'>
+          <View className='blog-title'>{value.title}</View>
+          <View className='blog-content'>{value.content.substring(0,50)}</View>
         </View>
       })
     }

@@ -9,12 +9,36 @@
 
 
 .my-card-title {
-  color: #222;
-  line-height: 1.4;
-  font-size: 30px;
+  font-size: 36px;
+  color: white;
   margin: 0 0 24px 0;
-  font-weight: 300;
+  font-weight: 700;
   text-transform: none;
 }
 
 
+.zt-wrap-item {
+  display: grid;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  grid-template-columns: auto auto ;
+  padding: 30px;
+}
+
+.grid-item {
+  text-align: left;
+  background-color: #fff;
+  color: #666;
+  box-shadow: 0 5px 15px rgb(0 0 0 / 8%);
+  border-radius: 20px;
+}
+
+.gallery-mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  transition: all .2s;
+  background-color: rgba(0,0,0,.3);
+  border-radius: 20px;
+}
