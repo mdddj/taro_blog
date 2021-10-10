@@ -17,9 +17,6 @@ export default class CategoryIndex extends Component {
   }
 
   handleClick(value) {
-    this.setState({
-      current: value
-    })
   }
 
   render() {

@@ -4725,10 +4725,10 @@ dayjs@^1.7.7:
   resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.7.tgz#2cf5f91add28116748440866a0a1d26f3a6ce468"
   integrity sha512-P6twpd70BcPK34K26uJ1KT3wlhpuOAPoMwJzpsIWUxHZ7wpmbdZL/hQqBDfz7hGurYSa5PhzdhDHtt319hL3ig==
 
-dd_server_api@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/dd_server_api/-/dd_server_api-2.0.5.tgz#2aeb06f8340103464908a541e769e93450ec4af1"
-  integrity sha512-1CSg0dWKomwEnGF/lJk7L+OymoDMZmSGx9IYJ+36xhtYakISv0alLHdHoKkKRSNQP/10DLAaCfXae5OcAylhtQ==
+dd_server_api@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/dd_server_api/-/dd_server_api-2.1.1.tgz#dc0dce46185a972d72d38236c1a279b9480ec8d9"
+  integrity sha512-7m0NcgWsWbm1oF16VzgpTBe/v+9bIpcZ+4ndQHxjMTDMThe96GoOf/jp76Ir5qMk9UuXWYfeUOpLK+TU9QdRvQ==
   dependencies:
     axios-miniprogram "^2.0.0-rc-2"
 
