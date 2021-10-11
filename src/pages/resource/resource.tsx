@@ -1,6 +1,6 @@
 import {View} from "@tarojs/components";
 import * as React from "react";
-import {useRef, useState} from "react";
+import {useState} from "react";
 // @ts-ignore
 import Taro from "@tarojs/taro"
 import {useReady} from "@tarojs/runtime";
